@@ -46,19 +46,29 @@ export function SectionHeading({
   eyebrow,
   title,
   subtitle,
+  index,
 }: {
   eyebrow: string;
   title: string;
   subtitle?: string;
+  index?: string;
 }) {
   return (
-    <Reveal className="mx-auto max-w-2xl text-center">
-      <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">{eyebrow}</p>
-      <h2 className="mt-4 text-3xl font-bold sm:text-4xl md:text-5xl">
-        <span className="text-gradient">{title}</span>
+    <Reveal className="max-w-3xl">
+      <div className="flex items-center gap-3">
+        {index ? (
+          <span className="font-mono text-[10px] tracking-[0.25em] text-cyan/70">{index}</span>
+        ) : null}
+        <span className="h-px w-8 bg-cyan/40" />
+        <p className="font-mono text-[10px] font-medium uppercase tracking-[0.25em] text-muted-foreground">
+          {eyebrow}
+        </p>
+      </div>
+      <h2 className="mt-5 text-3xl font-bold leading-[1.05] tracking-tighter sm:text-4xl md:text-5xl">
+        {title}
       </h2>
       {subtitle ? (
-        <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
+        <p className="mt-4 max-w-[60ch] text-sm leading-relaxed text-muted-foreground sm:text-base">
           {subtitle}
         </p>
       ) : null}
