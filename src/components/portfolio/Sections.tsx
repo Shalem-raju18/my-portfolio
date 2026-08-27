@@ -343,7 +343,11 @@ export function Contact() {
                 Links
               </p>
               <ul className="mt-4 grid gap-3 font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground/80">
-                <li>GitHub — add later</li>
+                <li>
+                  <a href="https://github.com/Shalem-raju18" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-cyan">
+                    GitHub
+                  </a>
+                </li>
                 <li>LinkedIn — add later</li>
                 <li>Other links — add later</li>
               </ul>

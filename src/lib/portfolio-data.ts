@@ -14,7 +14,7 @@ export const profile = {
   email: "jshalemraju07@gmail.com",
   phone: "7075811054",
   // Replace with your links when ready
-  github: "",
+  github: "https://github.com/Shalem-raju18",
   linkedin: "",
   resumeUrl: "",
   // Drop an image URL here to replace the monogram placeholder

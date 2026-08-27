@@ -20,7 +20,9 @@ export function Footer() {
         </div>
         <div className="text-sm text-muted-foreground">
           <p className="text-xs uppercase tracking-[0.2em] text-foreground/70">Links</p>
-          <p className="mt-3">GitHub — add later</p>
+          <a href="https://github.com/Shalem-raju18" target="_blank" rel="noopener noreferrer" className="mt-3 block hover:text-foreground">
+            GitHub
+          </a>
           <p className="mt-1">LinkedIn — add later</p>
         </div>
       </div>
