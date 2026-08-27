@@ -18,7 +18,8 @@ export const profile = {
   linkedin: "",
   resumeUrl: "",
   // Drop an image URL here to replace the monogram placeholder
-  photoUrl: "",
+  photoUrl: "https://i.postimg.cc/CLRcFGJ7/IMG-20250802-114627.jpg",
+
 };
 
 export const learningNow = ["React.js", "Node.js", "REST APIs", "Git & GitHub"];
