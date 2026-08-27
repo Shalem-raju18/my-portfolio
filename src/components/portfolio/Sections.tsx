@@ -20,7 +20,7 @@ import {
   services,
   skillGroups,
 } from "@/lib/portfolio-data";
-import { Reveal, SectionHeading } from "./Reveal";
+import { sendContactEmail } from "@/lib/email";
 
 function Panel({
   children,
