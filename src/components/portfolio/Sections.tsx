@@ -21,6 +21,7 @@ import {
   skillGroups,
 } from "@/lib/portfolio-data";
 import { sendContactEmail } from "@/lib/email";
+import { Reveal, SectionHeading } from "./Reveal";
 
 function Panel({
   children,
