@@ -20,6 +20,7 @@ import {
   services,
   skillGroups,
 } from "@/lib/portfolio-data";
+import { sendContactEmail } from "@/lib/email";
 import { Reveal, SectionHeading } from "./Reveal";
 
 function Panel({
@@ -354,17 +355,32 @@ export function Contact() {
           <Panel className="p-7 sm:p-8">
             <form
               className="grid gap-5"
-              onSubmit={(e) => {
+              onSubmit={async (e) => {
                 e.preventDefault();
                 setSending(true);
                 const form = e.currentTarget;
-                setTimeout(() => {
-                  setSending(false);
+                const formData = new FormData(form);
+                const data = {
+                  name: String(formData.get("name") ?? "").trim(),
+                  email: String(formData.get("email") ?? "").trim(),
+                  subject: String(formData.get("subject") ?? "").trim(),
+                  message: String(formData.get("message") ?? "").trim(),
+                };
+
+                try {
+                  await sendContactEmail(data);
                   form.reset();
-                  toast.success("Thanks! Your message is ready to send.", {
-                    description: `Reach out directly at ${profile.email}.`,
+                  toast.success("Message sent!", {
+                    description: "Thanks for reaching out — I'll get back to you soon.",
                   });
-                }, 600);
+                } catch (err) {
+                  console.error(err);
+                  toast.error("Something went wrong.", {
+                    description: "Please try again or email me directly.",
+                  });
+                } finally {
+                  setSending(false);
+                }
               }}
             >
               <div className="grid gap-5 sm:grid-cols-2">
