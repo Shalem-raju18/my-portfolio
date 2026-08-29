@@ -53,10 +53,7 @@ export const skillGroups = [
   },
 ];
 
-// Cover images: repo media where available, otherwise the GitHub social card.
-const ghCard = (repo: string) =>
-  `https://opengraph.githubassets.com/1/Shalem-raju18/${repo}`;
-
+// Cover images: screenshots from each repo.
 export const projects = [
   {
     id: "01",
