@@ -53,6 +53,10 @@ export const skillGroups = [
   },
 ];
 
+// Cover images: repo media where available, otherwise the GitHub social card.
+const ghCard = (repo: string) =>
+  `https://opengraph.githubassets.com/1/Shalem-raju18/${repo}`;
+
 export const projects = [
   {
     id: "01",
@@ -61,6 +65,7 @@ export const projects = [
       "GUI-based expense tracker with category management, data persistence, and real-time expense tracking.",
     tech: ["Python", "Tkinter"],
     github: "https://github.com/Shalem-raju18/expense-tracker-gui",
+    image: ghCard("expense-tracker-gui"),
   },
   {
     id: "02",
@@ -69,6 +74,7 @@ export const projects = [
       "Desktop weather application showing real-time weather data via the OpenWeather API.",
     tech: ["Python", "Tkinter", "OpenWeather API"],
     github: "https://github.com/Shalem-raju18/weather-app-gui",
+    image: ghCard("weather-app-gui"),
   },
   {
     id: "03",
@@ -76,6 +82,7 @@ export const projects = [
     description: "GUI to-do list application for managing daily tasks.",
     tech: ["Python", "Tkinter"],
     github: "https://github.com/Shalem-raju18/todo-app-python",
+    image: ghCard("todo-app-python"),
   },
   {
     id: "04",
@@ -83,6 +90,7 @@ export const projects = [
     description: "Control panel for a trading bot.",
     tech: ["TypeScript"],
     github: "https://github.com/Shalem-raju18/PrimeTrade-Bot-Control-Pane",
+    image: "https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6",
   },
   {
     id: "05",
@@ -90,6 +98,7 @@ export const projects = [
     description: "Academic project for managing student marks.",
     tech: ["Python"],
     github: "https://github.com/Shalem-raju18/student-marks-project",
+    image: ghCard("student-marks-project"),
   },
 ];
 

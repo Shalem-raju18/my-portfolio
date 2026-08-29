@@ -198,6 +198,36 @@ export function Skills() {
   );
 }
 
+function ProjectCover({ p }: { p: (typeof projects)[number] }) {
+  const [failed, setFailed] = useState(false);
+
+  return (
+    <div className="relative aspect-[2/1] overflow-hidden border-b border-border bg-background/60">
+      {/* Fallback placeholder */}
+      <div className="grid-bg absolute inset-0 opacity-40" />
+      <div className="absolute inset-0 grid place-items-center">
+        <span className="font-display text-6xl font-bold tracking-tighter text-foreground/10 transition-transform duration-500 group-hover:scale-110">
+          {p.id}
+        </span>
+      </div>
+      {/* Cover image overlays the placeholder; hides itself on load error */}
+      {p.image && !failed && (
+        <img
+          src={p.image}
+          alt={`${p.title} repository cover`}
+          loading="lazy"
+          onError={() => setFailed(true)}
+          className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+        />
+      )}
+      <span className="absolute left-5 top-5 z-10 rounded-sm bg-background/70 px-2 py-1 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground backdrop-blur-sm">
+        Project {p.id}
+      </span>
+      <span className="absolute bottom-0 left-0 z-10 h-px w-0 bg-cyan transition-all duration-500 group-hover:w-full" />
+    </div>
+  );
+}
+
 export function Projects() {
   return (
     <section id="projects" className="relative mx-auto max-w-6xl px-4 py-28">
@@ -211,18 +241,7 @@ export function Projects() {
         {projects.map((p, i) => (
           <Reveal key={p.id} delay={i * 90}>
             <article className="group h-full overflow-hidden rounded-sm border border-border bg-secondary/10 transition-colors duration-300 hover:border-cyan/40">
-              <div className="relative aspect-[16/9] overflow-hidden border-b border-border bg-background/60">
-                <div className="grid-bg absolute inset-0 opacity-40" />
-                <div className="absolute inset-0 grid place-items-center">
-                  <span className="font-display text-6xl font-bold tracking-tighter text-foreground/10 transition-transform duration-500 group-hover:scale-110">
-                    {p.id}
-                  </span>
-                </div>
-                <span className="absolute left-5 top-5 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                  Project {p.id}
-                </span>
-                <span className="absolute bottom-0 left-0 h-px w-0 bg-cyan transition-all duration-500 group-hover:w-full" />
-              </div>
+              <ProjectCover p={p} />
               <div className="p-6 sm:p-7">
                 <h3 className="text-lg font-semibold tracking-tight">{p.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{p.description}</p>
