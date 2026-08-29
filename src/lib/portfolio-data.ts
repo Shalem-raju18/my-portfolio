@@ -56,27 +56,40 @@ export const skillGroups = [
 export const projects = [
   {
     id: "01",
-    title: "Modern Web Application",
-    description: "Add project description here.",
-    tech: ["HTML", "CSS", "JavaScript"],
+    title: "Expense Tracker GUI",
+    description:
+      "GUI-based expense tracker with category management, data persistence, and real-time expense tracking.",
+    tech: ["Python", "Tkinter"],
+    github: "https://github.com/Shalem-raju18/expense-tracker-gui",
   },
   {
     id: "02",
-    title: "React Web Experience",
-    description: "Add project description here.",
-    tech: ["React.js", "CSS"],
+    title: "Weather App GUI",
+    description:
+      "Desktop weather application showing real-time weather data via the OpenWeather API.",
+    tech: ["Python", "Tkinter", "OpenWeather API"],
+    github: "https://github.com/Shalem-raju18/weather-app-gui",
   },
   {
     id: "03",
-    title: "Full-Stack Application",
-    description: "Add project description here.",
-    tech: ["React.js", "Node.js"],
+    title: "To-Do App",
+    description: "GUI to-do list application for managing daily tasks.",
+    tech: ["Python", "Tkinter"],
+    github: "https://github.com/Shalem-raju18/todo-app-python",
   },
   {
     id: "04",
-    title: "Personal/Academic Project",
-    description: "Add project description here.",
+    title: "PrimeTrade Bot Control Pane",
+    description: "Control panel for a trading bot.",
+    tech: ["TypeScript"],
+    github: "https://github.com/Shalem-raju18/PrimeTrade-Bot-Control-Pane",
+  },
+  {
+    id: "05",
+    title: "Student Marks Project",
+    description: "Academic project for managing student marks.",
     tech: ["Python"],
+    github: "https://github.com/Shalem-raju18/student-marks-project",
   },
 ];
 

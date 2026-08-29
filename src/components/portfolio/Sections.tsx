@@ -205,7 +205,7 @@ export function Projects() {
         index="04"
         eyebrow="Projects"
         title="Project Showcase"
-        subtitle="Editable placeholders — replace each card with a real project as you build it."
+        subtitle="Real projects from my GitHub — each card links to its repository."
       />
       <div className="mt-14 grid gap-6 sm:grid-cols-2">
         {projects.map((p, i) => (
@@ -238,7 +238,9 @@ export function Projects() {
                 </ul>
                 <div className="mt-7 flex items-center gap-5 border-t border-border pt-5">
                   <a
-                    href={profile.github || "#contact"}
+                    href={p.github || profile.github || "#contact"}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:text-cyan"
                   >
                     <Github className="h-3.5 w-3.5" />
