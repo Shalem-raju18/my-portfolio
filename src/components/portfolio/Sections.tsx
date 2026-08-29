@@ -266,7 +266,9 @@ export function Projects() {
                     GitHub
                   </a>
                   <a
-                    href="#projects"
+                    href={p.image || p.github || "#projects"}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-foreground"
                   >
                     Live Demo
