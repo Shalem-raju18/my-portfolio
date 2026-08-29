@@ -238,7 +238,9 @@ export function Projects() {
                 </ul>
                 <div className="mt-7 flex items-center gap-5 border-t border-border pt-5">
                   <a
-                    href={profile.github || "#contact"}
+                    href={p.github || profile.github || "#contact"}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:text-cyan"
                   >
                     <Github className="h-3.5 w-3.5" />
