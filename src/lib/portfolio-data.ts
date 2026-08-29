@@ -86,14 +86,6 @@ export const projects = [
   },
   {
     id: "04",
-    title: "PrimeTrade Bot Control Pane",
-    description: "Control panel for a trading bot.",
-    tech: ["TypeScript"],
-    github: "https://github.com/Shalem-raju18/PrimeTrade-Bot-Control-Pane",
-    image: "https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6",
-  },
-  {
-    id: "05",
     title: "Student Marks Project",
     description: "Academic project for managing student marks.",
     tech: ["Python"],
