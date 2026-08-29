@@ -205,7 +205,7 @@ export function Projects() {
         index="04"
         eyebrow="Projects"
         title="Project Showcase"
-        subtitle="Editable placeholders — replace each card with a real project as you build it."
+        subtitle="Real projects from my GitHub — each card links to its repository."
       />
       <div className="mt-14 grid gap-6 sm:grid-cols-2">
         {projects.map((p, i) => (
