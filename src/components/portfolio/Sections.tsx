@@ -42,7 +42,11 @@ function Panel({
 
 export function About() {
   return (
-    <section id="about" className="relative mx-auto max-w-6xl px-4 py-28">
+    <section
+      id="about"
+      aria-label="About me"
+      className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28"
+    >
       <SectionHeading
         index="01"
         eyebrow="About Me"
@@ -120,7 +124,7 @@ export function Education() {
   return (
     <section
       id="experience"
-      aria-labelledby="experience-heading"
+      aria-label="Experience and education"
       className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28"
     >
       <SectionHeading
