@@ -117,13 +117,18 @@ export function About() {
 
 export function Education() {
   return (
-    <section id="education" className="relative mx-auto max-w-6xl px-4 py-28">
+    <section
+      id="experience"
+      aria-labelledby="experience-heading"
+      className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28"
+    >
       <SectionHeading
-        index="02"
-        eyebrow="Education"
+        index="04"
+        eyebrow="Experience & Education"
         title="Academic Journey"
         subtitle="Currently in the third year of a four-year engineering program."
       />
+
       <div className="mt-14 grid gap-6">
         {education.map((e, i) => (
           <Reveal key={e.degree} delay={i * 100}>
@@ -158,13 +163,18 @@ const levelTone: Record<string, string> = {
 
 export function Skills() {
   return (
-    <section id="skills" className="relative mx-auto max-w-6xl px-4 py-28">
+    <section
+      id="skills"
+      aria-label="Skills"
+      className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28"
+    >
       <SectionHeading
-        index="03"
+        index="02"
         eyebrow="Skills"
         title="Tools I Work With"
         subtitle="Honest progress labels instead of invented percentages."
       />
+
       <div className="mt-14 grid gap-6 md:grid-cols-2">
         {skillGroups.map((group, gi) => (
           <Reveal key={group.title} delay={gi * 120}>
