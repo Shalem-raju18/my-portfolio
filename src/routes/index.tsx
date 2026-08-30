@@ -45,9 +45,9 @@ function Index() {
       <main>
         <Hero />
         <About />
-        <Education />
         <Skills />
         <Projects />
+        <Education />
         <Services />
         <Contact />
       </main>
