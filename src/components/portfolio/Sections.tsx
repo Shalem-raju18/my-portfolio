@@ -292,7 +292,7 @@ export function Projects() {
                   </a>
                 </div>
               </div>
-              <span className="mt-5 sr-only">{`Project ${p.id}`}</span>
+              
             </article>
           </Reveal>
         ))}
