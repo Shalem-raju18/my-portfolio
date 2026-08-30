@@ -62,7 +62,8 @@ export const projects = [
       "GUI-based expense tracker with category management, data persistence, and real-time expense tracking.",
     tech: ["Python", "Tkinter"],
     github: "https://github.com/Shalem-raju18/expense-tracker-gui",
-    image: ghCard("expense-tracker-gui"),
+    image:
+      "https://raw.githubusercontent.com/Shalem-raju18/expense-tracker-gui/main/Screenshot%202026-08-29%20095542.png",
   },
   {
     id: "02",
@@ -71,7 +72,8 @@ export const projects = [
       "Desktop weather application showing real-time weather data via the OpenWeather API.",
     tech: ["Python", "Tkinter", "OpenWeather API"],
     github: "https://github.com/Shalem-raju18/weather-app-gui",
-    image: ghCard("weather-app-gui"),
+    image:
+      "https://raw.githubusercontent.com/Shalem-raju18/weather-app-gui/main/Screenshot%202026-08-29%20100144.png",
   },
   {
     id: "03",
@@ -79,7 +81,8 @@ export const projects = [
     description: "GUI to-do list application for managing daily tasks.",
     tech: ["Python", "Tkinter"],
     github: "https://github.com/Shalem-raju18/todo-app-python",
-    image: ghCard("todo-app-python"),
+    image:
+      "https://raw.githubusercontent.com/Shalem-raju18/todo-app-python/main/Screenshot%202026-08-29%20100241.png",
   },
   {
     id: "04",
@@ -87,7 +90,8 @@ export const projects = [
     description: "Academic project for managing student marks.",
     tech: ["Python"],
     github: "https://github.com/Shalem-raju18/student-marks-project",
-    image: ghCard("student-marks-project"),
+    image:
+      "https://raw.githubusercontent.com/Shalem-raju18/student-marks-project/main/Screenshot%202026-08-29%20113909.png",
   },
 ];
 
