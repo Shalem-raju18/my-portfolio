@@ -6,6 +6,7 @@ import {
   Github,
   Layers,
   Layout,
+  Linkedin,
   Mail,
   MonitorSmartphone,
   Phone,
