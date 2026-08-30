@@ -6,6 +6,7 @@ import {
   Github,
   Layers,
   Layout,
+  Linkedin,
   Mail,
   MonitorSmartphone,
   Phone,
@@ -41,7 +42,11 @@ function Panel({
 
 export function About() {
   return (
-    <section id="about" className="relative mx-auto max-w-6xl px-4 py-28">
+    <section
+      id="about"
+      aria-label="About me"
+      className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28"
+    >
       <SectionHeading
         index="01"
         eyebrow="About Me"
@@ -117,13 +122,18 @@ export function About() {
 
 export function Education() {
   return (
-    <section id="education" className="relative mx-auto max-w-6xl px-4 py-28">
+    <section
+      id="experience"
+      aria-label="Experience and education"
+      className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28"
+    >
       <SectionHeading
-        index="02"
-        eyebrow="Education"
+        index="04"
+        eyebrow="Experience & Education"
         title="Academic Journey"
         subtitle="Currently in the third year of a four-year engineering program."
       />
+
       <div className="mt-14 grid gap-6">
         {education.map((e, i) => (
           <Reveal key={e.degree} delay={i * 100}>
@@ -158,13 +168,18 @@ const levelTone: Record<string, string> = {
 
 export function Skills() {
   return (
-    <section id="skills" className="relative mx-auto max-w-6xl px-4 py-28">
+    <section
+      id="skills"
+      aria-label="Skills"
+      className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28"
+    >
       <SectionHeading
-        index="03"
+        index="02"
         eyebrow="Skills"
         title="Tools I Work With"
         subtitle="Honest progress labels instead of invented percentages."
       />
+
       <div className="mt-14 grid gap-6 md:grid-cols-2">
         {skillGroups.map((group, gi) => (
           <Reveal key={group.title} delay={gi * 120}>
@@ -230,52 +245,59 @@ function ProjectCover({ p }: { p: (typeof projects)[number] }) {
 
 export function Projects() {
   return (
-    <section id="projects" className="relative mx-auto max-w-6xl px-4 py-28">
+    <section
+      id="projects"
+      aria-label="Projects"
+      className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28"
+    >
       <SectionHeading
-        index="04"
+        index="03"
         eyebrow="Projects"
         title="Project Showcase"
         subtitle="Real projects from my GitHub — each card links to its repository."
       />
-      <div className="mt-14 grid gap-6 sm:grid-cols-2">
+      <div className="mt-10 grid gap-6 sm:mt-14 sm:grid-cols-2 lg:gap-8">
         {projects.map((p, i) => (
-          <Reveal key={p.id} delay={i * 90}>
-            <article className="group h-full overflow-hidden rounded-sm border border-border bg-secondary/10 transition-colors duration-300 hover:border-cyan/40">
+          <Reveal key={p.id} delay={i * 90} className="h-full">
+            <article className="group flex h-full flex-col overflow-hidden rounded-sm border border-border bg-secondary/10 transition-colors duration-300 hover:border-cyan/40">
               <ProjectCover p={p} />
-              <div className="p-6 sm:p-7">
+              <div className="flex flex-1 flex-col p-6 sm:p-7">
                 <h3 className="text-lg font-semibold tracking-tight">{p.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{p.description}</p>
-                <ul className="mt-5 flex flex-wrap gap-2">
+                <ul aria-label={`${p.title} technologies`} className="mt-5 flex flex-wrap gap-2">
                   {p.tech.map((t) => (
                     <li
                       key={t}
-                      className="rounded-sm border border-border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-foreground/70"
+                      className="rounded-sm border border-border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-foreground/80"
                     >
                       {t}
                     </li>
                   ))}
                 </ul>
-                <div className="mt-7 flex items-center gap-5 border-t border-border pt-5">
+                <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border pt-5">
                   <a
                     href={p.github || profile.github || "#contact"}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:text-cyan"
+                    aria-label={`${p.title} GitHub repository`}
+                    className="inline-flex min-h-9 items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:text-cyan"
                   >
-                    <Github className="h-3.5 w-3.5" />
+                    <Github className="h-3.5 w-3.5" aria-hidden="true" />
                     GitHub
                   </a>
                   <a
                     href={p.image || p.github || "#projects"}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-foreground"
+                    aria-label={`${p.title} live demo`}
+                    className="inline-flex min-h-9 items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-foreground"
                   >
                     Live Demo
-                    <ArrowUpRight className="h-3.5 w-3.5" />
+                    <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
                   </a>
                 </div>
               </div>
+              
             </article>
           </Reveal>
         ))}
@@ -330,7 +352,11 @@ export function Contact() {
   const [sending, setSending] = useState(false);
 
   return (
-    <section id="contact" className="relative mx-auto max-w-6xl px-4 py-28">
+    <section
+      id="contact"
+      aria-label="Contact"
+      className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28"
+    >
       <div className="orb h-72 w-72 left-1/2 -translate-x-1/2 bg-primary opacity-20" />
       <SectionHeading
         index="06"
@@ -338,25 +364,25 @@ export function Contact() {
         title="Let's Build Something Great."
         subtitle="I'm always interested in learning, collaborating, building projects, and connecting with people in technology."
       />
-      <div className="relative mt-14 grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+      <div className="relative mt-10 grid gap-6 sm:mt-14 lg:grid-cols-[0.85fr_1.15fr]">
         <Reveal>
-          <Panel className="h-full p-7">
+          <Panel className="h-full p-6 sm:p-7">
             <ul className="grid">
               <li className="border-b border-border/60 py-4 first:pt-0">
                 <a
                   href={`mailto:${profile.email}`}
-                  className="flex items-center gap-3 text-sm transition-colors hover:text-cyan"
+                  className="flex min-h-11 items-center gap-3 text-sm transition-colors hover:text-cyan"
                 >
-                  <Mail className="h-4 w-4 shrink-0 text-cyan" />
+                  <Mail className="h-4 w-4 shrink-0 text-cyan" aria-hidden="true" />
                   <span className="truncate">{profile.email}</span>
                 </a>
               </li>
               <li className="py-4">
                 <a
                   href={`tel:${profile.phone}`}
-                  className="flex items-center gap-3 text-sm transition-colors hover:text-cyan"
+                  className="flex min-h-11 items-center gap-3 text-sm transition-colors hover:text-cyan"
                 >
-                  <Phone className="h-4 w-4 shrink-0 text-cyan" />
+                  <Phone className="h-4 w-4 shrink-0 text-cyan" aria-hidden="true" />
                   {profile.phone}
                 </a>
               </li>
@@ -365,14 +391,45 @@ export function Contact() {
               <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                 Links
               </p>
-              <ul className="mt-4 grid gap-3 font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground/80">
+              <ul className="mt-4 grid gap-2 font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground">
                 <li>
-                  <a href="https://github.com/Shalem-raju18" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-cyan">
+                  <a
+                    href={profile.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex min-h-11 items-center gap-3 transition-colors hover:text-cyan"
+                  >
+                    <Github className="h-4 w-4 shrink-0 text-cyan" aria-hidden="true" />
                     GitHub
                   </a>
                 </li>
-                <li>LinkedIn — add later</li>
-                <li>Other links — add later</li>
+                <li>
+                  {profile.linkedin ? (
+                    <a
+                      href={profile.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex min-h-11 items-center gap-3 transition-colors hover:text-cyan"
+                    >
+                      <Linkedin className="h-4 w-4 shrink-0 text-cyan" aria-hidden="true" />
+                      LinkedIn
+                    </a>
+                  ) : (
+                    <span className="flex min-h-11 items-center gap-3 text-muted-foreground/80">
+                      <Linkedin className="h-4 w-4 shrink-0" aria-hidden="true" />
+                      LinkedIn — coming soon
+                    </span>
+                  )}
+                </li>
+                <li>
+                  <a
+                    href={`mailto:${profile.email}`}
+                    className="flex min-h-11 items-center gap-3 transition-colors hover:text-cyan"
+                  >
+                    <Mail className="h-4 w-4 shrink-0 text-cyan" aria-hidden="true" />
+                    Email
+                  </a>
+                </li>
               </ul>
             </div>
           </Panel>
