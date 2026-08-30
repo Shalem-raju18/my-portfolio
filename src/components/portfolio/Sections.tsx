@@ -256,40 +256,43 @@ export function Projects() {
           <Reveal key={p.id} delay={i * 90} className="h-full">
             <article className="group flex h-full flex-col overflow-hidden rounded-sm border border-border bg-secondary/10 transition-colors duration-300 hover:border-cyan/40">
               <ProjectCover p={p} />
-              <div className="p-6 sm:p-7">
+              <div className="flex flex-1 flex-col p-6 sm:p-7">
                 <h3 className="text-lg font-semibold tracking-tight">{p.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{p.description}</p>
-                <ul className="mt-5 flex flex-wrap gap-2">
+                <ul aria-label={`${p.title} technologies`} className="mt-5 flex flex-wrap gap-2">
                   {p.tech.map((t) => (
                     <li
                       key={t}
-                      className="rounded-sm border border-border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-foreground/70"
+                      className="rounded-sm border border-border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-foreground/80"
                     >
                       {t}
                     </li>
                   ))}
                 </ul>
-                <div className="mt-7 flex items-center gap-5 border-t border-border pt-5">
+                <div className="mt-auto flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-border pt-5">
                   <a
                     href={p.github || profile.github || "#contact"}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:text-cyan"
+                    aria-label={`${p.title} GitHub repository`}
+                    className="inline-flex min-h-9 items-center gap-2 font-mono text-[10px] uppercase tracking-[0.18em] text-foreground transition-colors hover:text-cyan"
                   >
-                    <Github className="h-3.5 w-3.5" />
+                    <Github className="h-3.5 w-3.5" aria-hidden="true" />
                     GitHub
                   </a>
                   <a
                     href={p.image || p.github || "#projects"}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-foreground"
+                    aria-label={`${p.title} live demo`}
+                    className="inline-flex min-h-9 items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-foreground"
                   >
                     Live Demo
-                    <ArrowUpRight className="h-3.5 w-3.5" />
+                    <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
                   </a>
                 </div>
               </div>
+              <span className="mt-5 sr-only">{`Project ${p.id}`}</span>
             </article>
           </Reveal>
         ))}
