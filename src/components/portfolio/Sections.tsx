@@ -347,7 +347,11 @@ export function Contact() {
   const [sending, setSending] = useState(false);
 
   return (
-    <section id="contact" className="relative mx-auto max-w-6xl px-4 py-28">
+    <section
+      id="contact"
+      aria-label="Contact"
+      className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28"
+    >
       <div className="orb h-72 w-72 left-1/2 -translate-x-1/2 bg-primary opacity-20" />
       <SectionHeading
         index="06"
@@ -355,25 +359,25 @@ export function Contact() {
         title="Let's Build Something Great."
         subtitle="I'm always interested in learning, collaborating, building projects, and connecting with people in technology."
       />
-      <div className="relative mt-14 grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+      <div className="relative mt-10 grid gap-6 sm:mt-14 lg:grid-cols-[0.85fr_1.15fr]">
         <Reveal>
-          <Panel className="h-full p-7">
+          <Panel className="h-full p-6 sm:p-7">
             <ul className="grid">
               <li className="border-b border-border/60 py-4 first:pt-0">
                 <a
                   href={`mailto:${profile.email}`}
-                  className="flex items-center gap-3 text-sm transition-colors hover:text-cyan"
+                  className="flex min-h-11 items-center gap-3 text-sm transition-colors hover:text-cyan"
                 >
-                  <Mail className="h-4 w-4 shrink-0 text-cyan" />
+                  <Mail className="h-4 w-4 shrink-0 text-cyan" aria-hidden="true" />
                   <span className="truncate">{profile.email}</span>
                 </a>
               </li>
               <li className="py-4">
                 <a
                   href={`tel:${profile.phone}`}
-                  className="flex items-center gap-3 text-sm transition-colors hover:text-cyan"
+                  className="flex min-h-11 items-center gap-3 text-sm transition-colors hover:text-cyan"
                 >
-                  <Phone className="h-4 w-4 shrink-0 text-cyan" />
+                  <Phone className="h-4 w-4 shrink-0 text-cyan" aria-hidden="true" />
                   {profile.phone}
                 </a>
               </li>
@@ -382,14 +386,45 @@ export function Contact() {
               <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                 Links
               </p>
-              <ul className="mt-4 grid gap-3 font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground/80">
+              <ul className="mt-4 grid gap-2 font-mono text-[11px] uppercase tracking-[0.12em] text-muted-foreground">
                 <li>
-                  <a href="https://github.com/Shalem-raju18" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-cyan">
+                  <a
+                    href={profile.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex min-h-11 items-center gap-3 transition-colors hover:text-cyan"
+                  >
+                    <Github className="h-4 w-4 shrink-0 text-cyan" aria-hidden="true" />
                     GitHub
                   </a>
                 </li>
-                <li>LinkedIn — add later</li>
-                <li>Other links — add later</li>
+                <li>
+                  {profile.linkedin ? (
+                    <a
+                      href={profile.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex min-h-11 items-center gap-3 transition-colors hover:text-cyan"
+                    >
+                      <Linkedin className="h-4 w-4 shrink-0 text-cyan" aria-hidden="true" />
+                      LinkedIn
+                    </a>
+                  ) : (
+                    <span className="flex min-h-11 items-center gap-3 text-muted-foreground/80">
+                      <Linkedin className="h-4 w-4 shrink-0" aria-hidden="true" />
+                      LinkedIn — coming soon
+                    </span>
+                  )}
+                </li>
+                <li>
+                  <a
+                    href={`mailto:${profile.email}`}
+                    className="flex min-h-11 items-center gap-3 transition-colors hover:text-cyan"
+                  >
+                    <Mail className="h-4 w-4 shrink-0 text-cyan" aria-hidden="true" />
+                    Email
+                  </a>
+                </li>
               </ul>
             </div>
           </Panel>
