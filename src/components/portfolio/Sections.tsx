@@ -240,17 +240,21 @@ function ProjectCover({ p }: { p: (typeof projects)[number] }) {
 
 export function Projects() {
   return (
-    <section id="projects" className="relative mx-auto max-w-6xl px-4 py-28">
+    <section
+      id="projects"
+      aria-label="Projects"
+      className="relative mx-auto max-w-6xl px-4 py-20 sm:py-28"
+    >
       <SectionHeading
-        index="04"
+        index="03"
         eyebrow="Projects"
         title="Project Showcase"
         subtitle="Real projects from my GitHub — each card links to its repository."
       />
-      <div className="mt-14 grid gap-6 sm:grid-cols-2">
+      <div className="mt-10 grid gap-6 sm:mt-14 sm:grid-cols-2 lg:gap-8">
         {projects.map((p, i) => (
-          <Reveal key={p.id} delay={i * 90}>
-            <article className="group h-full overflow-hidden rounded-sm border border-border bg-secondary/10 transition-colors duration-300 hover:border-cyan/40">
+          <Reveal key={p.id} delay={i * 90} className="h-full">
+            <article className="group flex h-full flex-col overflow-hidden rounded-sm border border-border bg-secondary/10 transition-colors duration-300 hover:border-cyan/40">
               <ProjectCover p={p} />
               <div className="p-6 sm:p-7">
                 <h3 className="text-lg font-semibold tracking-tight">{p.title}</h3>
