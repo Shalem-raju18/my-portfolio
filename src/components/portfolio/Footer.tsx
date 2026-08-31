@@ -20,10 +20,12 @@ export function Footer() {
         </div>
         <div className="text-sm text-muted-foreground">
           <p className="text-xs uppercase tracking-[0.2em] text-foreground/70">Links</p>
-          <a href="https://github.com/Shalem-raju18" target="_blank" rel="noopener noreferrer" className="mt-3 block hover:text-foreground">
+          <a href={profile.github} target="_blank" rel="noopener noreferrer" className="mt-3 block hover:text-foreground">
             GitHub
           </a>
-          <p className="mt-1">LinkedIn — add later</p>
+          <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="mt-1 block hover:text-foreground">
+            LinkedIn
+          </a>
         </div>
       </div>
       <div className="mx-auto mt-10 grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 border-t border-border pt-6">

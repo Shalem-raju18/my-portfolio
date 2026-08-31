@@ -15,7 +15,7 @@ export const profile = {
   phone: "7075811054",
   // Replace with your links when ready
   github: "https://github.com/Shalem-raju18",
-  linkedin: "",
+  linkedin: "https://www.linkedin.com/in/shalemraju-janga-19b77b380/",
   resumeUrl: "",
   // Drop an image URL here to replace the monogram placeholder
   photoUrl: "https://i.postimg.cc/CLRcFGJ7/IMG-20250802-114627.jpg",
