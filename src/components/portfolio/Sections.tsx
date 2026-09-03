@@ -19,7 +19,7 @@ import type { IconType } from "react-icons";
 import { FaJava } from "react-icons/fa";
 import {
   SiCplusplus,
-  SiCss3,
+  SiCss,
   SiDart,
   SiFirebase,
   SiFlutter,
@@ -192,7 +192,7 @@ const skillIcons: Record<string, { Icon: IconType; color: string }> = {
   cpp: { Icon: SiCplusplus, color: "#00599C" },
   dart: { Icon: SiDart, color: "#0175C2" },
   html: { Icon: SiHtml5, color: "#E34F26" },
-  css: { Icon: SiCss3, color: "#1572B6" },
+  css: { Icon: SiCss, color: "#1572B6" },
   react: { Icon: SiReact, color: "#61DAFB" },
   node: { Icon: SiNodedotjs, color: "#5FA04E" },
   flutter: { Icon: SiFlutter, color: "#02569B" },
