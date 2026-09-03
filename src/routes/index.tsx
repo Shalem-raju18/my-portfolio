@@ -16,7 +16,7 @@ const title = "Shalemraju Janga | Personal Portfolio & Developer";
 const description =
   "Portfolio of Shalemraju Janga, a B.Tech student and web developer building modern, responsive interfaces with React, Node.js and Python. Projects, skills and contact.";
 const url = "https://gradient-growth-grid.lovable.app/";
-const image = "https://i.postimg.cc/CLRcFGJ7/IMG-20250802-114627.jpg";
+const image = "https://i.postimg.cc/y87H5xb4/my-photo.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
