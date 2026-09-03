@@ -86,6 +86,7 @@ export const projects: Project[] = [
       "A Flutter chat application with a conversational UI for interactive messaging.",
     tech: ["Flutter", "Dart"],
     github: "https://github.com/Shalem-raju18/ai_chat_app",
+    demo: "",
     image:
       "https://raw.githubusercontent.com/Shalem-raju18/ai_chat_app/main/ai_caht_app.png",
   },
