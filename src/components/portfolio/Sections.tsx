@@ -354,16 +354,22 @@ export function Projects() {
                     <Github className="h-3.5 w-3.5" aria-hidden="true" />
                     GitHub
                   </a>
-                  <a
-                    href={p.image || p.github || "#projects"}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${p.title} live demo`}
-                    className="inline-flex min-h-9 items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    Live Demo
-                    <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-                  </a>
+                  {p.demo ? (
+                    <a
+                      href={p.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${p.title} live demo`}
+                      className="inline-flex min-h-9 items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                      Live Demo
+                      <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                    </a>
+                  ) : (
+                    <span className="inline-flex min-h-9 items-center rounded-none border border-border/60 px-2 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                      Deployment Coming Soon
+                    </span>
+                  )}
                 </div>
               </div>
               
