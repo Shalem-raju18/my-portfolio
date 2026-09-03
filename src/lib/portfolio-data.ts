@@ -66,7 +66,19 @@ export const skillGroups = [
 
 
 // Cover images: screenshots from each repo.
-export const projects = [
+// demo: set a real deployed app URL to show a Live Demo button.
+// Leave "" to show the "Deployment Coming Soon" badge instead.
+type Project = {
+  id: string;
+  title: string;
+  description: string;
+  tech: string[];
+  github: string;
+  image: string;
+  demo?: string;
+};
+
+export const projects: Project[] = [
   {
     id: "01",
     title: "AI Chat App",
