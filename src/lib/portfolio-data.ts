@@ -37,21 +37,33 @@ export const skillGroups = [
   {
     title: "Programming Languages",
     items: [
-      { name: "Python", level: "Building With" },
-      { name: "Java", level: "Developing" },
-      { name: "C++", level: "Familiar" },
+      { name: "Python", level: "Building With", icon: "python" },
+      { name: "Java", level: "Developing", icon: "java" },
+      { name: "C++", level: "Familiar", icon: "cpp" },
+      { name: "Dart", level: "Developing", icon: "dart" },
     ],
   },
   {
-    title: "Web Technologies",
+    title: "Web Development",
     items: [
-      { name: "HTML", level: "Building With" },
-      { name: "CSS", level: "Building With" },
-      { name: "React.js", level: "Learning" },
-      { name: "Node.js", level: "Learning" },
+      { name: "HTML5", level: "Building With", icon: "html" },
+      { name: "CSS3", level: "Building With", icon: "css" },
+      { name: "React", level: "Learning", icon: "react" },
+      { name: "Node.js", level: "Learning", icon: "node" },
+    ],
+  },
+  {
+    title: "Mobile & Tools",
+    items: [
+      { name: "Flutter", level: "Building With", icon: "flutter" },
+      { name: "Firebase", level: "Learning", icon: "firebase" },
+      { name: "Git", level: "Building With", icon: "git" },
+      { name: "GitHub", level: "Building With", icon: "github" },
+      { name: "VS Code", level: "Building With", icon: "vscode" },
     ],
   },
 ];
+
 
 // Cover images: screenshots from each repo.
 export const projects = [
