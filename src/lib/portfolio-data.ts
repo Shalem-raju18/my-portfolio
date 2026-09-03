@@ -57,41 +57,23 @@ export const skillGroups = [
 export const projects = [
   {
     id: "01",
-    title: "Expense Tracker GUI",
+    title: "AI Chat App",
     description:
-      "GUI-based expense tracker with category management, data persistence, and real-time expense tracking.",
-    tech: ["Python", "Tkinter"],
-    github: "https://github.com/Shalem-raju18/expense-tracker-gui",
+      "A Flutter chat application with a conversational UI for interactive messaging.",
+    tech: ["Flutter", "Dart"],
+    github: "https://github.com/Shalem-raju18/ai_chat_app",
     image:
-      "https://raw.githubusercontent.com/Shalem-raju18/expense-tracker-gui/main/Screenshot%202026-08-29%20095542.png",
+      "https://raw.githubusercontent.com/Shalem-raju18/ai_chat_app/main/ai_caht_app.png",
   },
   {
     id: "02",
-    title: "Weather App GUI",
+    title: "Calculator App",
     description:
-      "Desktop weather application showing real-time weather data via the OpenWeather API.",
-    tech: ["Python", "Tkinter", "OpenWeather API"],
-    github: "https://github.com/Shalem-raju18/weather-app-gui",
+      "A clean Flutter calculator app for quick arithmetic with a modern mobile UI.",
+    tech: ["Flutter", "Dart"],
+    github: "https://github.com/Shalem-raju18/calculator_app",
     image:
-      "https://raw.githubusercontent.com/Shalem-raju18/weather-app-gui/main/Screenshot%202026-08-29%20100144.png",
-  },
-  {
-    id: "03",
-    title: "To-Do App",
-    description: "GUI to-do list application for managing daily tasks.",
-    tech: ["Python", "Tkinter"],
-    github: "https://github.com/Shalem-raju18/todo-app-python",
-    image:
-      "https://raw.githubusercontent.com/Shalem-raju18/todo-app-python/main/Screenshot%202026-08-29%20100241.png",
-  },
-  {
-    id: "04",
-    title: "Student Marks Project",
-    description: "Academic project for managing student marks.",
-    tech: ["Python"],
-    github: "https://github.com/Shalem-raju18/student-marks-project",
-    image:
-      "https://raw.githubusercontent.com/Shalem-raju18/student-marks-project/main/Screenshot%202026-08-29%20113909.png",
+      "https://raw.githubusercontent.com/Shalem-raju18/calculator_app/main/Calculator_app.png",
   },
 ];
 
