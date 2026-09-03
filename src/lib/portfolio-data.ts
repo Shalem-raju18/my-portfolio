@@ -66,7 +66,19 @@ export const skillGroups = [
 
 
 // Cover images: screenshots from each repo.
-export const projects = [
+// demo: set a real deployed app URL to show a Live Demo button.
+// Leave "" to show the "Deployment Coming Soon" badge instead.
+type Project = {
+  id: string;
+  title: string;
+  description: string;
+  tech: string[];
+  github: string;
+  image: string;
+  demo?: string;
+};
+
+export const projects: Project[] = [
   {
     id: "01",
     title: "AI Chat App",
@@ -74,6 +86,7 @@ export const projects = [
       "A Flutter chat application with a conversational UI for interactive messaging.",
     tech: ["Flutter", "Dart"],
     github: "https://github.com/Shalem-raju18/ai_chat_app",
+    demo: "",
     image:
       "https://raw.githubusercontent.com/Shalem-raju18/ai_chat_app/main/ai_caht_app.png",
   },
@@ -84,6 +97,7 @@ export const projects = [
       "A clean Flutter calculator app for quick arithmetic with a modern mobile UI.",
     tech: ["Flutter", "Dart"],
     github: "https://github.com/Shalem-raju18/calculator_app",
+    demo: "",
     image:
       "https://raw.githubusercontent.com/Shalem-raju18/calculator_app/main/Calculator_app.png",
   },
