@@ -166,6 +166,58 @@ const levelTone: Record<string, string> = {
   Familiar: "text-muted-foreground border-border",
 };
 
+const skillIcons: Record<string, { Icon: IconType; color: string }> = {
+  python: { Icon: SiPython, color: "#3776AB" },
+  java: { Icon: FaJava, color: "#E76F00" },
+  cpp: { Icon: SiCplusplus, color: "#00599C" },
+  dart: { Icon: SiDart, color: "#0175C2" },
+  html: { Icon: SiHtml5, color: "#E34F26" },
+  css: { Icon: SiCss3, color: "#1572B6" },
+  react: { Icon: SiReact, color: "#61DAFB" },
+  node: { Icon: SiNodedotjs, color: "#5FA04E" },
+  flutter: { Icon: SiFlutter, color: "#02569B" },
+  firebase: { Icon: SiFirebase, color: "#FFCA28" },
+  git: { Icon: SiGit, color: "#F05032" },
+  github: { Icon: SiGithub, color: "#E6EDF3" },
+  vscode: { Icon: TbBrandVscode, color: "#007ACC" },
+};
+
+const groupIcons: Record<string, LucideIcon> = {
+  "Programming Languages": Code2,
+  "Web Development": Globe,
+  "Mobile & Tools": Smartphone,
+};
+
+function SkillCard({ name, level, icon }: { name: string; level: string; icon?: string }) {
+  const entry = icon ? skillIcons[icon] : undefined;
+  const Icon = entry?.Icon;
+
+  return (
+    <div
+      className="group/skill relative flex flex-col items-center gap-3 overflow-hidden rounded-sm border border-border bg-secondary/20 p-4 text-center shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-1.5 hover:border-cyan/45 hover:bg-secondary/30 hover:shadow-[0_12px_40px_-12px_color-mix(in_oklab,var(--cyan)_45%,transparent)] sm:p-5"
+    >
+      <span
+        className="pointer-events-none absolute inset-x-0 -top-16 h-24 opacity-0 blur-2xl transition-opacity duration-500 group-hover/skill:opacity-40"
+        style={{ background: entry?.color ?? "var(--cyan)" }}
+        aria-hidden="true"
+      />
+      {Icon ? (
+        <Icon
+          className="relative h-8 w-8 shrink-0 transition-transform duration-300 group-hover/skill:scale-115 sm:h-10 sm:w-10"
+          style={{ color: entry?.color }}
+          aria-hidden="true"
+        />
+      ) : null}
+      <span className="relative text-xs font-semibold tracking-tight sm:text-sm">{name}</span>
+      <span
+        className={`relative shrink-0 rounded-sm border px-2 py-0.5 font-mono text-[9px] uppercase tracking-[0.12em] sm:text-[10px] ${levelTone[level]}`}
+      >
+        {level}
+      </span>
+    </div>
+  );
+}
+
 export function Skills() {
   return (
     <section
@@ -180,38 +232,35 @@ export function Skills() {
         subtitle="Honest progress labels instead of invented percentages."
       />
 
-      <div className="mt-14 grid gap-6 md:grid-cols-2">
-        {skillGroups.map((group, gi) => (
-          <Reveal key={group.title} delay={gi * 120}>
-            <Panel className="h-full p-7">
-              <div className="flex items-center justify-between border-b border-border pb-5">
-                <h3 className="text-base font-semibold tracking-tight">{group.title}</h3>
-                <span className="font-mono text-[10px] tracking-widest text-muted-foreground/60">
-                  {String(group.items.length).padStart(2, "0")}
-                </span>
+      <div className="mt-14 grid gap-10 sm:gap-12">
+        {skillGroups.map((group, gi) => {
+          const GroupIcon = groupIcons[group.title] ?? Code2;
+          return (
+            <Reveal key={group.title} delay={gi * 120}>
+              <div>
+                <div className="flex items-center justify-between border-b border-border pb-4">
+                  <h3 className="flex items-center gap-3 text-base font-semibold tracking-tight">
+                    <GroupIcon className="h-4 w-4 text-cyan" aria-hidden="true" />
+                    {group.title}
+                  </h3>
+                  <span className="font-mono text-[10px] tracking-widest text-muted-foreground/60">
+                    {String(group.items.length).padStart(2, "0")}
+                  </span>
+                </div>
+                <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5">
+                  {group.items.map((s) => (
+                    <SkillCard key={s.name} name={s.name} level={s.level} icon={s.icon} />
+                  ))}
+                </div>
               </div>
-              <ul className="mt-2 grid">
-                {group.items.map((s) => (
-                  <li
-                    key={s.name}
-                    className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 border-b border-border/60 py-4 transition-colors last:border-0 hover:text-cyan"
-                  >
-                    <span className="truncate text-sm font-medium">{s.name}</span>
-                    <span
-                      className={`shrink-0 rounded-sm border px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] ${levelTone[s.level]}`}
-                    >
-                      {s.level}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </Panel>
-          </Reveal>
-        ))}
+            </Reveal>
+          );
+        })}
       </div>
     </section>
   );
 }
+
 
 function ProjectCover({ p }: { p: (typeof projects)[number] }) {
   const [failed, setFailed] = useState(false);
