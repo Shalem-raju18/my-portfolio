@@ -4,6 +4,7 @@ import {
   Code2,
   Cpu,
   Github,
+  Globe,
   Layers,
   Layout,
   Linkedin,
@@ -11,8 +12,27 @@ import {
   MonitorSmartphone,
   Phone,
   Server,
+  Smartphone,
+  type LucideIcon,
 } from "lucide-react";
+import type { IconType } from "react-icons";
+import { FaJava } from "react-icons/fa";
+import {
+  SiCplusplus,
+  SiCss3,
+  SiDart,
+  SiFirebase,
+  SiFlutter,
+  SiGit,
+  SiGithub,
+  SiHtml5,
+  SiNodedotjs,
+  SiPython,
+  SiReact,
+} from "react-icons/si";
+import { TbBrandVscode } from "react-icons/tb";
 import { toast } from "sonner";
+
 import {
   education,
   learningNow,
