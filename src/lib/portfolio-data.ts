@@ -18,7 +18,7 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/shalemraju-janga-19b77b380/",
   resumeUrl: "",
   // Drop an image URL here to replace the monogram placeholder
-  photoUrl: "https://i.postimg.cc/CLRcFGJ7/IMG-20250802-114627.jpg",
+  photoUrl: "https://i.postimg.cc/y87H5xb4/my-photo.jpg",
 
 };
 
