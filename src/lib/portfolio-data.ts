@@ -81,17 +81,6 @@ type Project = {
 export const projects: Project[] = [
   {
     id: "01",
-    title: "AI Chat App",
-    description:
-      "A Flutter chat application with a conversational UI for interactive messaging.",
-    tech: ["Flutter", "Dart"],
-    github: "https://github.com/Shalem-raju18/ai_chat_app",
-    demo: "https://ai-chat-app-shalem1.vercel.app/",
-    image:
-      "https://raw.githubusercontent.com/Shalem-raju18/ai_chat_app/main/ai_caht_app.png",
-  },
-  {
-    id: "02",
     title: "Calculator App",
     description:
       "A clean Flutter calculator app for quick arithmetic with a modern mobile UI.",
@@ -102,7 +91,7 @@ export const projects: Project[] = [
       "https://raw.githubusercontent.com/Shalem-raju18/calculator_app/main/Calculator_app.png",
   },
   {
-    id: "03",
+    id: "02",
     title: "🤖 AI Chat App",
     description:
       "A modern AI-powered chat application built with Flutter and Google Gemini AI. The application provides an interactive chat experience with a clean, responsive, and user-friendly interface.",
