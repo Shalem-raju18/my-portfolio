@@ -101,6 +101,16 @@ export const projects: Project[] = [
     image:
       "https://raw.githubusercontent.com/Shalem-raju18/calculator_app/main/Calculator_app.png",
   },
+  {
+    id: "03",
+    title: "🤖 AI Chat App",
+    description:
+      "A modern AI-powered chat application built with Flutter and Google Gemini AI. The application provides an interactive chat experience with a clean, responsive, and user-friendly interface.",
+    tech: ["Flutter", "Dart", "Google Gemini AI", "HTTP API", "Vercel"],
+    github: "https://github.com/Shalem-raju18/ai-chat-app",
+    demo: "https://ai-chat-pgxca878w-shalem1.vercel.app",
+    image: "/ai-chat-cover.jpg",
+  },
 ];
 
 export const services = [
