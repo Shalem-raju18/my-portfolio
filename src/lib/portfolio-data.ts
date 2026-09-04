@@ -86,7 +86,7 @@ export const projects: Project[] = [
       "A Flutter chat application with a conversational UI for interactive messaging.",
     tech: ["Flutter", "Dart"],
     github: "https://github.com/Shalem-raju18/ai_chat_app",
-    demo: "",
+    demo: "https://ai-chat-app-shalem1.vercel.app/",
     image:
       "https://raw.githubusercontent.com/Shalem-raju18/ai_chat_app/main/ai_caht_app.png",
   },
@@ -97,7 +97,7 @@ export const projects: Project[] = [
       "A clean Flutter calculator app for quick arithmetic with a modern mobile UI.",
     tech: ["Flutter", "Dart"],
     github: "https://github.com/Shalem-raju18/calculator_app",
-    demo: "",
+    demo: "https://calculator-app-pi-snowy.vercel.app/",
     image:
       "https://raw.githubusercontent.com/Shalem-raju18/calculator_app/main/Calculator_app.png",
   },
