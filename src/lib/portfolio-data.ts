@@ -86,7 +86,7 @@ export const projects: Project[] = [
       "A clean Flutter calculator app for quick arithmetic with a modern mobile UI.",
     tech: ["Flutter", "Dart"],
     github: "https://github.com/Shalem-raju18/calculator_app",
-    demo: "https://calculator-app-pi-snowy.vercel.app/",
+    demo: "https://calculator-ek9mlz6hm-shalem1.vercel.app",
     image:
       "https://raw.githubusercontent.com/Shalem-raju18/calculator_app/main/Calculator_app.png",
   },
