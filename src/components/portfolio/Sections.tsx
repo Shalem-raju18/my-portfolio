@@ -514,28 +514,34 @@ export function Contact() {
           <Panel className="p-7 sm:p-8">
             <form
               className="grid gap-5"
+              noValidate
               onSubmit={async (e) => {
                 e.preventDefault();
-                setSending(true);
-                const form = e.currentTarget;
-                const formData = new FormData(form);
-                const data = {
-                  name: String(formData.get("name") ?? "").trim(),
-                  email: String(formData.get("email") ?? "").trim(),
-                  subject: String(formData.get("subject") ?? "").trim(),
-                  message: String(formData.get("message") ?? "").trim(),
-                };
+                if (sending) return;
 
+                const parsed = contactSchema.safeParse(values);
+                if (!parsed.success) {
+                  const next: ContactErrors = {};
+                  for (const issue of parsed.error.issues) {
+                    const key = issue.path[0] as keyof ContactValues;
+                    if (key && !next[key]) next[key] = issue.message;
+                  }
+                  setErrors(next);
+                  return;
+                }
+
+                setErrors({});
+                setSending(true);
                 try {
-                  await sendContactEmail(data);
-                  form.reset();
-                  toast.success("Message sent!", {
-                    description: "Thanks for reaching out — I'll get back to you soon.",
-                  });
+                  await submitContactMessage(parsed.data);
+                  setValues({ name: "", email: "", subject: "", message: "" });
+                  setSent(true);
+                  window.setTimeout(() => setSent(false), 6000);
+                  toast.success("Thank you! Your message has been sent successfully.");
                 } catch (err) {
                   console.error(err);
-                  toast.error("Something went wrong.", {
-                    description: "Please try again or email me directly.",
+                  toast.error("Your message couldn't be sent.", {
+                    description: "Please try again in a moment, or email me directly.",
                   });
                 } finally {
                   setSending(false);
@@ -543,29 +549,79 @@ export function Contact() {
               }}
             >
               <div className="grid gap-5 sm:grid-cols-2">
-                <Field label="Name" name="name" placeholder="Your name" />
-                <Field label="Email" name="email" type="email" placeholder="you@email.com" />
+                <Field
+                  label="Name"
+                  name="name"
+                  placeholder="Your name"
+                  value={values.name}
+                  error={errors.name}
+                  onChange={(v) => setValues((s) => ({ ...s, name: v }))}
+                />
+                <Field
+                  label="Email"
+                  name="email"
+                  type="email"
+                  placeholder="you@email.com"
+                  value={values.email}
+                  error={errors.email}
+                  onChange={(v) => setValues((s) => ({ ...s, email: v }))}
+                />
               </div>
-              <Field label="Subject" name="subject" placeholder="What's this about?" />
+              <Field
+                label="Subject"
+                name="subject"
+                placeholder="What's this about?"
+                value={values.subject}
+                error={errors.subject}
+                onChange={(v) => setValues((s) => ({ ...s, subject: v }))}
+              />
               <label className="grid gap-2">
                 <span className="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
                   Message
                 </span>
                 <textarea
                   name="message"
-                  required
                   rows={5}
+                  value={values.message}
+                  onChange={(e) => setValues((s) => ({ ...s, message: e.target.value }))}
+                  aria-invalid={errors.message ? true : undefined}
+                  aria-describedby={errors.message ? "message-error" : undefined}
                   placeholder="Tell me a bit more..."
-                  className="w-full resize-none rounded-sm border-b border-input bg-transparent px-0 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-cyan"
+                  className={`w-full resize-none rounded-sm border-b bg-transparent px-0 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-cyan ${
+                    errors.message ? "border-destructive" : "border-input"
+                  }`}
                 />
+                {errors.message ? (
+                  <span id="message-error" role="alert" className="text-xs text-destructive">
+                    {errors.message}
+                  </span>
+                ) : null}
               </label>
               <button
                 type="submit"
                 disabled={sending}
-                className="mt-2 w-full rounded-sm bg-foreground px-6 py-4 text-sm font-semibold uppercase tracking-widest text-background transition-colors duration-300 hover:bg-cyan hover:text-primary-foreground disabled:opacity-70"
+                aria-busy={sending}
+                className="cta-motion mt-2 flex w-full items-center justify-center gap-2 rounded-sm bg-foreground px-6 py-4 text-sm font-semibold uppercase tracking-widest text-background hover:bg-cyan hover:text-primary-foreground disabled:cursor-not-allowed disabled:opacity-70"
               >
-                {sending ? "Sending..." : "Send Message"}
+                {sending ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+                    Sending...
+                  </>
+                ) : (
+                  "Send Message"
+                )}
               </button>
+
+              {sent ? (
+                <p
+                  role="status"
+                  className="animate-scale-in flex items-center justify-center gap-2 rounded-sm border border-cyan/40 bg-cyan/10 px-4 py-3 text-center text-xs text-cyan"
+                >
+                  <CheckCircle2 className="h-4 w-4 shrink-0" aria-hidden="true" />
+                  Thank you! Your message has been sent successfully.
+                </p>
+              ) : null}
             </form>
           </Panel>
         </Reveal>
@@ -579,11 +635,17 @@ function Field({
   name,
   type = "text",
   placeholder,
+  value,
+  error,
+  onChange,
 }: {
   label: string;
   name: string;
   type?: string;
   placeholder?: string;
+  value: string;
+  error?: string;
+  onChange: (value: string) => void;
 }) {
   return (
     <label className="grid gap-2">
@@ -593,10 +655,20 @@ function Field({
       <input
         name={name}
         type={type}
-        required
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        aria-invalid={error ? true : undefined}
+        aria-describedby={error ? `${name}-error` : undefined}
         placeholder={placeholder}
-        className="w-full rounded-sm border-b border-input bg-transparent px-0 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-cyan"
+        className={`w-full rounded-sm border-b bg-transparent px-0 py-3 text-sm outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-cyan ${
+          error ? "border-destructive" : "border-input"
+        }`}
       />
+      {error ? (
+        <span id={`${name}-error`} role="alert" className="text-xs text-destructive">
+          {error}
+        </span>
+      ) : null}
     </label>
   );
 }
