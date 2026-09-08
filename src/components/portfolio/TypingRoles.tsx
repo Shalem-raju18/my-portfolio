@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-const ROLES = [
+const ROLES: string[] = [
   "Web Developer",
   "Flutter Developer",
   "AI Enthusiast",
@@ -17,12 +17,12 @@ export function TypingRoles() {
     reduced.current =
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced.current) setText(ROLES[0]);
+    if (reduced.current) setText(ROLES[0]!);
   }, []);
 
   useEffect(() => {
     if (reduced.current) return;
-    const full = ROLES[index];
+    const full = ROLES[index]!;
     let delay = deleting ? 45 : 85;
 
     if (!deleting && text === full) delay = 1600;
