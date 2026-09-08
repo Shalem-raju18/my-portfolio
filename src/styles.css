@@ -223,3 +223,130 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---------- Hero entrance + ambient motion ---------- */
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@utility hero-in {
+  opacity: 0;
+  animation: hero-rise 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+@keyframes caret-blink-kf {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@utility caret-blink {
+  animation: caret-blink-kf 1.1s steps(1, end) infinite;
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0) rotate(1.2deg);
+  }
+}
+
+@utility float-soft {
+  animation: float-soft 7s ease-in-out infinite;
+}
+
+@keyframes particle-drift {
+  0% {
+    transform: translate3d(0, 12px, 0);
+    opacity: 0;
+  }
+  20%,
+  80% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate3d(0, -120px, 0);
+    opacity: 0;
+  }
+}
+
+@utility particle {
+  position: absolute;
+  border-radius: 9999px;
+  background: var(--cyan);
+  pointer-events: none;
+  animation: particle-drift 14s linear infinite;
+}
+
+@keyframes grid-pan {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 24px 24px;
+  }
+}
+
+@utility grid-pan {
+  animation: grid-pan 12s linear infinite;
+}
+
+@keyframes scroll-bounce {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate3d(0, 7px, 0);
+    opacity: 1;
+  }
+}
+
+@utility scroll-bounce {
+  animation: scroll-bounce 1.8s ease-in-out infinite;
+}
+
+@utility cta-motion {
+  transition:
+    transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+  &:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: var(--glow-primary);
+  }
+  &:active {
+    transform: translateY(0) scale(0.97);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-in {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+  .particle {
+    display: none;
+  }
+}
