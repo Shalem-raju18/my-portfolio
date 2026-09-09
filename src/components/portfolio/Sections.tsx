@@ -1,7 +1,9 @@
 import { useState } from "react";
 import {
   ArrowUpRight,
+  CheckCircle2,
   Code2,
+  Loader2,
   Cpu,
   Github,
   Globe,
@@ -42,6 +44,12 @@ import {
   skillGroups,
 } from "@/lib/portfolio-data";
 import { sendContactEmail } from "@/lib/email";
+import {
+  contactSchema,
+  submitContactMessage,
+  type ContactErrors,
+  type ContactValues,
+} from "@/lib/contact";
 import { Reveal, SectionHeading } from "./Reveal";
 
 function Panel({
@@ -425,6 +433,14 @@ export function Services() {
 
 export function Contact() {
   const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [errors, setErrors] = useState<ContactErrors>({});
+  const [values, setValues] = useState<ContactValues>({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
   return (
     <section
@@ -644,7 +660,7 @@ function Field({
   type?: string;
   placeholder?: string;
   value: string;
-  error?: string;
+  error?: string | undefined;
   onChange: (value: string) => void;
 }) {
   return (
