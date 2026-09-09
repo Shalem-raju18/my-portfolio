@@ -42,6 +42,12 @@ import {
   skillGroups,
 } from "@/lib/portfolio-data";
 import { sendContactEmail } from "@/lib/email";
+import {
+  contactSchema,
+  submitContactMessage,
+  type ContactErrors,
+  type ContactValues,
+} from "@/lib/contact";
 import { Reveal, SectionHeading } from "./Reveal";
 
 function Panel({
