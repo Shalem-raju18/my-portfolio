@@ -658,7 +658,7 @@ function Field({
   type?: string;
   placeholder?: string;
   value: string;
-  error?: string;
+  error?: string | undefined;
   onChange: (value: string) => void;
 }) {
   return (
