@@ -1,7 +1,9 @@
 import { useState } from "react";
 import {
   ArrowUpRight,
+  CheckCircle2,
   Code2,
+  Loader2,
   Cpu,
   Github,
   Globe,
