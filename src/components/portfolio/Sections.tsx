@@ -425,6 +425,14 @@ export function Services() {
 
 export function Contact() {
   const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [errors, setErrors] = useState<ContactErrors>({});
+  const [values, setValues] = useState<ContactValues>({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
   return (
     <section
